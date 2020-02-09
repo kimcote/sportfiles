@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1" xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1" xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2" xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="schema1.xsd" namespace="http://www.garmin.com/xmlschemas/ActivityExtension/v2" />
+  <xs:element name="TrainingCenterDatabase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Activities">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Activity">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Id" type="xs:dateTime" />
+                    <xs:element maxOccurs="unbounded" name="Lap">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TotalTimeSeconds" type="xs:decimal" />
+                          <xs:element name="DistanceMeters" type="xs:decimal" />
+                          <xs:element name="MaximumSpeed" type="xs:decimal" />
+                          <xs:element name="Calories" type="xs:unsignedByte" />
+                          <xs:element name="Intensity" type="xs:string" />
+                          <xs:element name="TriggerMethod" type="xs:string" />
+                          <xs:element name="Track">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Trackpoint">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Time" type="xs:dateTime" />
+                                      <xs:element name="DistanceMeters" type="xs:decimal" />
+                                      <xs:element name="Cadence" type="xs:unsignedByte" />
+                                      <xs:element name="SensorState" type="xs:string" />
+                                      <xs:element name="HeartRateBpm">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="Value" type="xs:unsignedByte" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="Extensions">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element ref="ns3:TPX" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="StartTime" type="xs:dateTime" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Creator">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name" type="xs:string" />
+                          <xs:element name="ProductID" type="xs:unsignedByte" />
+                          <xs:element name="Version">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="VersionMajor" type="xs:unsignedByte" />
+                                <xs:element name="VersionMinor" type="xs:unsignedByte" />
+                                <xs:element name="BuildMajor" type="xs:unsignedByte" />
+                                <xs:element name="BuildMinor" type="xs:unsignedByte" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Sport" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Author">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" />
+              <xs:element name="Build">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Version">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="VersionMajor" type="xs:unsignedByte" />
+                          <xs:element name="VersionMinor" type="xs:unsignedByte" />
+                          <xs:element name="BuildMajor" type="xs:unsignedByte" />
+                          <xs:element name="BuildMinor" type="xs:unsignedByte" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="LangID" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
